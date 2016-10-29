@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/bukkit-1.7.9-R0.2-20140515.034156-1.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/Vault.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/PermissionsEx.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/Herochat.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/BarAPI.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/SurvivalGames.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/Residence.jar"/>
+	<classpathentry kind="lib" path="/Users/erikbigler/Documents/BukkitAPI/worldguard-6.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,81 @@
+##################################
+## Applessentials Configuration ##
+##################################
+
+#####################
+# Boss Bar Messages #
+#####################
+
+## This is where you can set what messages are displayed to a player as a boss
+# bar message at the top of the screen. The messages are world based and each world
+# can have multiple messages. You can set the interval (in seconds) before
+# a new message is displayed. Setting the interval to 0 will disable this.
+
+boss-bar-messages:
+
+#    world-name:
+#        interval: 60
+#        messages:
+#        - Welcome to the server!
+#        - We hope you enjoy your stay.
+
+#####################
+# Spawn Compass GUI #
+#####################
+
+## This is where you can edit the menu that shows when people right-click with the compass
+# at spawn.
+# Names and lore support '&' color codes (ie &6 for gold).
+
+spawn-compass-gui:
+
+   ## The name that is shown at the top of the inventory screen.
+   gui-name: "Hub Menu"
+
+   ## The amount of rows you want the GUI menu to have with a max of 6.
+   rows: 6
+
+   ## This is the list of items in the GUI with the slot numbers, starting with 0.
+   # You can include a permission needed to see the item, but it is not required.
+   # If you do not include an enabled node, Applessentials will assume enabled: true.
+   slots:
+#        0:
+#            item: 
+#                id: 'id:data'
+#                name: "Item Name"
+#                lore:
+#                  - "*click me*"              
+#            teleport:
+#                x:
+#                y:
+#                z:
+#                yaw:
+#                pitch:
+#                world:
+#            commands:
+#                - "island"
+#            permission: "some.permission"
+#            enabled: true
+
+################################
+# World/Gametype Relationships #
+################################
+
+## Here you can tell Applessentials the name of the universe/gametype a world
+# is associated to.
+# Format: "world name: gametype"
+# This data is used throughout the plugin to help determine where players are
+
+world-gametype:
+#    park: Parkour
+ 
+#########################
+# Player Warning System #
+#########################
+
+## List of punishments with the corresponding warn point requirement.
+# Available punishments: kick, perma, a time (formatted for the tempban 
+# command, e.g. 5d for 5 days
+
+warn-punishments:
+#    10: 7d
