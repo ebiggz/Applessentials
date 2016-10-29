@@ -8,10 +8,12 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import com.dthielke.herochat.ChannelChatEvent;
-import com.dthielke.herochat.Chatter;
-import com.dthielke.herochat.ConversationChannel;
-import com.dthielke.herochat.Herochat;
+
+import com.dthielke.Herochat;
+import com.dthielke.api.Chatter;
+import com.dthielke.api.event.ChannelChatEvent;
+import com.dthielke.channel.ConversationChannel;
+
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
 

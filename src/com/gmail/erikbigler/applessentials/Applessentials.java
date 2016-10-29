@@ -226,7 +226,7 @@ public class Applessentials extends JavaPlugin {
 
 	private boolean setupVault() {
 		Plugin vault =  getServer().getPluginManager().getPlugin("Vault");
-		if (vault != null && vault instanceof net.milkbowl.vault.Vault) { //first check that vault exists
+		if (vault != null) { //first check that vault exists
 			getLogger().info("Hooked into Vault v" + vault.getDescription().getVersion());
 			if(!setupEconomy()) { //check for econ plugin
 				getLogger().severe("No permissions plugin to handle cash!");
