@@ -40,11 +40,11 @@ spawn-compass-gui:
    # If you do not include an enabled node, Applessentials will assume enabled: true.
    slots:
 #        0:
-#            item: 
+#            item:
 #                id: 'id:data'
 #                name: "Item Name"
 #                lore:
-#                  - "*click me*"              
+#                  - "*click me*"
 #            teleport:
 #                x:
 #                y:
@@ -68,14 +68,30 @@ spawn-compass-gui:
 
 world-gametype:
 #    park: Parkour
- 
+
 #########################
 # Player Warning System #
 #########################
 
 ## List of punishments with the corresponding warn point requirement.
-# Available punishments: kick, perma, a time (formatted for the tempban 
+# Available punishments: kick, perma, a time (formatted for the tempban
 # command, e.g. 5d for 5 days
 
 warn-punishments:
 #    10: 7d
+
+################
+# Spawn System #
+################
+
+# The world where people initially spawn
+spawn-settings:
+  spawn-world-name: ""
+
+# The location that people get sent do when they do the /hub or /spawn command
+  hub-tp-location:
+    x: 0
+    y: 0
+    z: 0
+    yaw: 0
+    pitch: 0

@@ -10,6 +10,7 @@ import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -76,6 +77,7 @@ public class Applessentials extends JavaPlugin {
 	private static BarMessageHandler bmh;
 	private static MenuManager mm;
 	private static World spawnWorld;
+	private static Location hubLocation;
 	//private static VoteLobby vl;
 
 	public static Economy economy = null;
@@ -84,7 +86,7 @@ public class Applessentials extends JavaPlugin {
 	public static boolean hasPermPlugin = true;
 	public static boolean hasEconPlugin = false;
 
-	private static int	tps = 0;
+	private static int tps = 0;
 	private long second = 0;
 	private static Plugin plugin;
 
@@ -97,7 +99,6 @@ public class Applessentials extends JavaPlugin {
 	public void onEnable() {
 
 		plugin = this;
-		spawnWorld = Bukkit.getWorld("diego");
 		new Utils();
 		new FancyMenu();
 		new BarAPI();
@@ -138,6 +139,8 @@ public class Applessentials extends JavaPlugin {
 		getCommand("hidepm").setExecutor(new ChatHider());
 		getCommand("friends").setExecutor(new FriendsCmds());
 		getCommand("settings").setExecutor(new FriendsCmds());
+		getCommand("hub").setExecutor(new GeneralCmds(this));
+		getCommand("spawn").setExecutor(new GeneralCmds(this));
 
 		pm.registerEvents(new PlayerListener(this), this);
 		pm.registerEvents(new PlayerInfoListener(), this);
@@ -214,8 +217,6 @@ public class Applessentials extends JavaPlugin {
 
 					}.init(invUpdate));
 				}
-				// TODO Auto-generated method stub
-
 			}
 
 		}, 20*5, 20*5);
@@ -363,6 +364,30 @@ public class Applessentials extends JavaPlugin {
 				Applessentials.worldAndGamemodes.put(world, gameType);
 			}
 		}
+		
+		//load spawn data
+		ConfigurationSection cs5 = getConfig().getConfigurationSection("spawn-settings");
+		World sWorld = null;
+		String worldName = cs5.getString("spawn-world-name").trim();
+		if(worldName != null && !worldName.isEmpty()) {
+			sWorld = Bukkit.getWorld(worldName);
+		}
+		if(sWorld == null) {
+			sWorld = Bukkit.getWorld("diego");
+			getLogger().warning("Could not find spawn world name in config. Defaulting to 'diego'");
+		}
+		spawnWorld = sWorld;
+	
+		ConfigurationSection hubTpSection = cs5.getConfigurationSection("hub-tp-location");
+		
+		hubLocation = new Location(
+				spawnWorld,
+				hubTpSection.getDouble("x"),
+				hubTpSection.getDouble("y"), 
+				hubTpSection.getDouble("z"),
+				Float.parseFloat(hubTpSection.getString("yaw")),
+				Float.parseFloat(hubTpSection.getString("pitch"))
+		);	
 	}
 
 	private void loadSignsFile() {
@@ -432,6 +457,10 @@ public class Applessentials extends JavaPlugin {
 
 	public static World getSpawnWorld() {
 		return spawnWorld;
+	}
+	
+	public static Location getHubLocation() {
+		return hubLocation;
 	}
 
 	public static SliceManager getSliceManager() {

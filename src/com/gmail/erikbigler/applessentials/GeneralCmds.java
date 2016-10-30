@@ -1,9 +1,13 @@
 package com.gmail.erikbigler.applessentials;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -38,6 +42,13 @@ public class GeneralCmds implements CommandExecutor {
 			Player p = (Player) sender;
 			p.setWalkSpeed(1.0F);
 			p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100000, 2, true));
+		}
+		else if(commandLabel.equalsIgnoreCase("hub") || commandLabel.equalsIgnoreCase("spawn")) {
+			Player p = (Player) sender;
+			Location tpLoc = Applessentials.getHubLocation();
+			if(tpLoc != null) {
+				p.teleport(tpLoc);
+			}
 		}
 		return true;
 	}

@@ -89,6 +89,12 @@ commands:
     settings:
         description: Hides private messages.
         usage: /<command>
+    hub:
+        description: Takes you to the hub.
+        usage: /<command>
+    spawn:
+        description: Takes you to the hub.
+        usage: /<command>
 permissions:
     applecraft.youtuber:
         default: false
