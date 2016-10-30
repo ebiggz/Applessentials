@@ -49,7 +49,7 @@
 	  		<artifactId>HeroChat</artifactId>
 	  		<version>5.7.0</version>
 	  		<scope>system</scope>
-	  		<systemPath>${project.basedir}/dependencies/HeroChat-5.7.0.jar</systemPath>
+	  		<systemPath>${project.basedir}/dependencies/HeroChat.jar</systemPath>
 	  	</dependency>
 	  	<!-- WorldGuard -->
 	  	<dependency>

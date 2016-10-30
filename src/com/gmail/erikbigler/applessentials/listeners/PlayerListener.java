@@ -23,6 +23,7 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
 import com.gmail.erikbigler.applessentials.utils.Time;
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 
 
@@ -38,7 +39,7 @@ public class PlayerListener implements Listener {
 	@EventHandler (priority = EventPriority.MONITOR)
 	public void onEarlyJoin(final AsyncPlayerPreLoginEvent event) {
 
-		if(Bukkit.getOnlinePlayers().length < Bukkit.getServer().getMaxPlayers()) return;
+		if(Utils.getOnlinePlayers().length < Bukkit.getServer().getMaxPlayers()) return;
 
 
 		PermissionUser pu = PermissionsEx.getPermissionManager().getUser(event.getUniqueId());
@@ -143,7 +144,7 @@ public class PlayerListener implements Listener {
 	}
 
 	private void notifyFriendsOfPlayerStatusChange(Player player, String joinOrLeft) {
-		Player[] onlinePlayers = Bukkit.getOnlinePlayers();
+		Player[] onlinePlayers = Utils.getOnlinePlayers();
 		for(Player onlinePlayer : onlinePlayers) {
 			Slice onlineSlice = Applessentials.getSliceManager().getSlice(onlinePlayer.getName());
 			if(onlineSlice.isFriendsWith(player.getName())) {

@@ -3,8 +3,6 @@ package com.gmail.erikbigler.applessentials.bossbar;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.confuser.barapi.BarAPI;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -44,8 +42,9 @@ public class BarMessageData {
 					}
 					lastTimeStamp = Time.getTimeWithSecs();
 					for(Player player : w.getPlayers()) {
-						//if(Applessentials.getVoteLobby().playerIsInLobby(player)) continue;
-						BarAPI.setMessage(player, messages.get(currentMessage).replace("%player%", player.getName()), interval);
+						break;
+						//if(Applessentials.getVoteLobby().playerIsInLobby(player)) continue;					
+						//BarAPI.setMessage(player, messages.get(currentMessage).replace("%player%", player.getName()), interval);
 					}
 				}
 			}, 0, interval * 20);

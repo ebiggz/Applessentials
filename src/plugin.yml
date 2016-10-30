@@ -1,10 +1,10 @@
 main: com.gmail.erikbigler.applessentials.Applessentials
 name: Applessentials
-version: 1.21
+version: 1.22
 author: ebiggz
-description: General purpose plugin for AppleCraft. 
+description: General purpose plugin for AppleCraft.
 depend: [Herochat, PermissionsEx, Vault]
-commands: 
+commands:
     playerinfo:
         description: Mod command for viewing player info.
         usage: /<command> [playername]
@@ -118,7 +118,7 @@ permissions:
             applecraft.setwarn: true
             applecraft.unwarn: true
             applecraft.resetwarn: true
-            applecraft.spawnmenudisable: true      
+            applecraft.spawnmenudisable: true
     applecraft.*:
         default: op
         children:

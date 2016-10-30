@@ -24,6 +24,7 @@ import com.dthielke.herochat.Herochat;
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
 import com.gmail.erikbigler.applessentials.utils.Time;
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 public class PlayerInfo implements CommandExecutor {
 	@SuppressWarnings("deprecation")
@@ -68,7 +69,7 @@ public class PlayerInfo implements CommandExecutor {
 	}
 
 	public String completeName(String playername) {
-		Player[] onlinePlayers = Bukkit.getOnlinePlayers();
+		Player[] onlinePlayers = Utils.getOnlinePlayers();
 		for(int i = 0; i < onlinePlayers.length; i++) {
 			if(onlinePlayers[i].getName().toLowerCase().startsWith(playername.toLowerCase())) {
 				return onlinePlayers[i].getName();

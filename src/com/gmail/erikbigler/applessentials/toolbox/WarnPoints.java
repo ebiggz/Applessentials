@@ -16,6 +16,7 @@ import com.gmail.erikbigler.applessentials.Slice;
 import com.gmail.erikbigler.applessentials.WarnEntry;
 import com.gmail.erikbigler.applessentials.WarnPunishment;
 import com.gmail.erikbigler.applessentials.utils.Time;
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 
 public class WarnPoints implements CommandExecutor {
@@ -284,7 +285,7 @@ public class WarnPoints implements CommandExecutor {
 	}
 
 	public String completeName(String playername) {
-		Player[] onlinePlayers = Bukkit.getOnlinePlayers();
+		Player[] onlinePlayers = Utils.getOnlinePlayers();
 		for(int i = 0; i < onlinePlayers.length; i++) {
 			if(onlinePlayers[i].getName().toLowerCase().startsWith(playername.toLowerCase())) {
 				return onlinePlayers[i].getName();

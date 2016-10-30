@@ -10,14 +10,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.bekvon.bukkit.residence.Residence;
 
 
 public class ResCmds implements CommandExecutor  {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
-		if(commandLabel.equalsIgnoreCase("resmax")) {
+		/*if(commandLabel.equalsIgnoreCase("resmax")) {
 			//get some vars
 			Player player = (Player) sender;
 			Location loc = player.getLocation();
@@ -36,7 +35,7 @@ public class ResCmds implements CommandExecutor  {
 			} else {
 				sender.sendMessage(ChatColor.RED + "Sorry, you don't have permission to use the res tool command.");
 			}
-		}
+		}*/
 		return true;
 	}
 

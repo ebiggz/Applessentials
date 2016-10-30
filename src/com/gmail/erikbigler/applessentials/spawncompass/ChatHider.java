@@ -28,6 +28,7 @@ import com.dthielke.herochat.ConversationChannel;
 import com.dthielke.herochat.Herochat;
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 
 public class ChatHider implements CommandExecutor, Listener {
@@ -113,7 +114,7 @@ public class ChatHider implements CommandExecutor, Listener {
 				String format = applyFormatStandard(event.getFormat(), event.getBukkitFormat(), player, event.getChannel());
 
 				Chatter sender = Herochat.getChatterManager().getChatter(player);
-				Set<Player> recipients = new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()));
+				Set<Player> recipients = new HashSet<Player>(Arrays.asList(Utils.getOnlinePlayers()));
 
 				trimRecipients(recipients, sender, event.getChannel());
 				String msg = String.format(format, new Object[] { player.getDisplayName(), event.getMessage() });

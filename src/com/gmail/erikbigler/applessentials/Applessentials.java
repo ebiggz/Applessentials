@@ -19,6 +19,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.gmail.erikbigler.applessentials.bossbar.BarAPI;
 import com.gmail.erikbigler.applessentials.bossbar.BarMessageHandler;
 import com.gmail.erikbigler.applessentials.bossbar.BarMessagePlayerListener;
 import com.gmail.erikbigler.applessentials.chatutils.AutoChannel;
@@ -98,6 +99,7 @@ public class Applessentials extends JavaPlugin {
 		spawnWorld = Bukkit.getWorld("diego");
 		new Utils();
 		new FancyMenu();
+		new BarAPI();
 
 		PluginManager pm = getServer().getPluginManager();
 

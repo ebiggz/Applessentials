@@ -8,14 +8,13 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitScheduler;
 
-
-import com.dthielke.Herochat;
-import com.dthielke.api.Chatter;
-import com.dthielke.api.event.ChannelChatEvent;
-import com.dthielke.channel.ConversationChannel;
-
+import com.dthielke.herochat.ChannelChatEvent;
+import com.dthielke.herochat.Chatter;
+import com.dthielke.herochat.ConversationChannel;
+import com.dthielke.herochat.Herochat;
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 
 public class NSA implements Listener {
@@ -37,7 +36,7 @@ public class NSA implements Listener {
 			private ChannelChatEvent event;
 			@Override
 			public void run() {
-				Player[] onlinePlayers = Bukkit.getOnlinePlayers();
+				Player[] onlinePlayers = Utils.getOnlinePlayers();
 				for(Player player : onlinePlayers) {
 					Slice slice = Applessentials.getSliceManager().getSlice(player.getName());
 					if(slice.isSeeingAllChat()) {

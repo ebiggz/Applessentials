@@ -8,9 +8,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
-import com.dthielke.Herochat;
-import com.dthielke.api.Channel;
-import com.dthielke.channel.ConversationChannel;
+import com.dthielke.herochat.Channel;
+import com.dthielke.herochat.ConversationChannel;
+import com.dthielke.herochat.Herochat;
+
 
 
 
@@ -35,6 +36,5 @@ public class AutoChannel implements Listener {
 				return;
 			}
 		}
-		//Herochat.getChatterManager().getChatter(p).setActiveChannel(Herochat.getChannelManager().getChannel("Global"), true, true);
 	}
 }

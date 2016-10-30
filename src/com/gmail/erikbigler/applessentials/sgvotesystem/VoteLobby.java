@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 
-import me.confuser.barapi.BarAPI;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -25,12 +24,9 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.mcsg.survivalgames.Game;
-import org.mcsg.survivalgames.Game.GameMode;
-import org.mcsg.survivalgames.GameManager;
-import org.mcsg.survivalgames.SettingsManager;
 
 import com.gmail.erikbigler.applessentials.Applessentials;
+import com.gmail.erikbigler.applessentials.bossbar.BarAPI;
 import com.gmail.erikbigler.applessentials.utils.Time;
 
 public class VoteLobby {
@@ -39,7 +35,7 @@ public class VoteLobby {
 	private Objective objective;
 	private ScoreboardManager manager = Bukkit.getScoreboardManager();
 	private boolean voteInProgress = false;
-	private Game currentGame;
+	//private Game currentGame;
 	private Queue<Player> queue = new LinkedList<Player>();
 	private HashMap<String, ArenaTotal> voteTotals = new HashMap<String, ArenaTotal>();
 	private Inventory voteBallot;
@@ -139,7 +135,7 @@ public class VoteLobby {
 
 	public void voteEnd() {
 
-
+ /*
 		this.voteInProgress = false;
 
 		//clear scoreboard
@@ -195,9 +191,11 @@ public class VoteLobby {
 				checkForEmptyMap();
 			}
 		}, 20*60);
+		*/
 	}
 
 	void checkForEmptyMap() {
+		/*
 		if(currentGame != null) {
 			if(currentGame.getGameMode() == GameMode.WAITING) {
 				if(currentGame.getActivePlayers() < 1) {
@@ -212,6 +210,7 @@ public class VoteLobby {
 				}
 			}
 		}
+		*/
 	}
 
 	void cancelVote() {
@@ -263,17 +262,20 @@ public class VoteLobby {
 
 	private List<String> getAvailableArenas() {
 		List<String> arenas = new ArrayList<String>();
+		/*
 		for(Game game : GameManager.getInstance().getGames()) {
 			GameMode gm = game.getGameMode();
 			if(gm == GameMode.WAITING) {
 				arenas.add(Integer.toString(game.getID()));
 			}
 		}
+		*/
 		return arenas;
 	}
 
 
 	public void addPlayerToLobby(Player p) {
+		/*
 		VoteState vs = this.getVoteState();
 		p.sendMessage(ChatColor.GREEN + "[SG Vote Lobby] Joined the vote lobby!");
 		if(vs == VoteState.GAME_WAITING) {
@@ -321,6 +323,7 @@ public class VoteLobby {
 			BarAPI.setMessage(p, ChatColor.YELLOW + "Vote on a Survival Games Map! Type " + ChatColor.GREEN + "/map vote", newInterval);
 
 		}
+		*/
 	}
 
 	public boolean playerIsInLobby(Player p) {
@@ -345,9 +348,9 @@ public class VoteLobby {
 		if(aGameIsInProgress()) {
 			return VoteState.GAME_INPROGRESS;
 		}
-		else if(currentGame != null) {
+		/*else if(currentGame != null) {
 			return VoteState.GAME_WAITING;
-		}
+		}*/
 		else if (voteInProgress){
 			return VoteState.VOTE_INPROGRESS;
 		}
@@ -357,12 +360,12 @@ public class VoteLobby {
 	}
 
 	private boolean aGameIsInProgress() {
-		for(Game game : GameManager.getInstance().getGames()) {
+		/*for(Game game : GameManager.getInstance().getGames()) {
 			GameMode gm = game.getGameMode();
 			if(gm == GameMode.INGAME || gm == GameMode.FINISHING) {
 				return true;
 			}
-		}
+		}*/
 		return false;
 	}
 

@@ -1,7 +1,5 @@
 package com.gmail.erikbigler.applessentials.bossbar;
 
-import me.confuser.barapi.BarAPI;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

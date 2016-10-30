@@ -3,6 +3,7 @@ package com.gmail.erikbigler.applessentials.utils;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -108,7 +109,7 @@ public class Utils {
 		ItemMeta skullItemMeta = skull.getItemMeta();
 		skullItemMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.UNDERLINE + "Player Stats");
 		List<String> playerStats = new ArrayList<String>();
-		playerStats.add(ChatColor.GOLD + "Currently Online: " + ChatColor.WHITE + Bukkit.getOnlinePlayers().length + "/" + Bukkit.getMaxPlayers());
+		playerStats.add(ChatColor.GOLD + "Currently Online: " + ChatColor.WHITE + Utils.getOnlinePlayers().length + "/" + Bukkit.getMaxPlayers());
 		playerStats.add(ChatColor.GOLD + "Total Joined: " + ChatColor.WHITE + Bukkit.getOfflinePlayers().length);
 		skullItemMeta.setLore(playerStats);
 		skull.setItemMeta(skullItemMeta);
@@ -284,5 +285,20 @@ public class Utils {
 		i.setItem(16, acceptingFRsValue);
 
 		return i;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static Player[] getOnlinePlayers() {
+		try {
+			if (Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).getReturnType() == Collection.class) {
+				Collection<? extends Player> players = ((Collection<? extends Player>) Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).invoke(null, new Object[0]));
+				players.toArray(new Player[players.size()]);
+			} else {
+				return ((Player[]) Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).invoke(null, new Object[0]));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new Player[0];
 	}
 }
