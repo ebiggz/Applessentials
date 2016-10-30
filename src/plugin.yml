@@ -1,6 +1,6 @@
 main: com.gmail.erikbigler.applessentials.Applessentials
 name: Applessentials
-version: 1.22
+version: 1.23
 author: ebiggz
 description: General purpose plugin for AppleCraft.
 depend: [Herochat, PermissionsEx, Vault]

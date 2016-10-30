@@ -22,6 +22,7 @@ import org.bukkit.event.Listener;
 
 import com.dthielke.herochat.Channel;
 import com.dthielke.herochat.ChannelChatEvent;
+import com.dthielke.herochat.ChatCompleteEvent;
 import com.dthielke.herochat.Chatter;
 import com.dthielke.herochat.Chatter.Result;
 import com.dthielke.herochat.ConversationChannel;
@@ -115,8 +116,9 @@ public class ChatHider implements CommandExecutor, Listener {
 
 				Chatter sender = Herochat.getChatterManager().getChatter(player);
 				Set<Player> recipients = new HashSet<Player>(Arrays.asList(Utils.getOnlinePlayers()));
-
-				trimRecipients(recipients, sender, event.getChannel());
+						
+				trimRecipients(recipients, sender, event.getChannel());				
+				
 				String msg = String.format(format, new Object[] { player.getDisplayName(), event.getMessage() });
 				for(Player pl : recipients) {
 					if(Applessentials.playersHidingChat.contains(pl)) {
@@ -128,7 +130,7 @@ public class ChatHider implements CommandExecutor, Listener {
 					}
 					pl.sendMessage(ChatColor.translateAlternateColorCodes('&',msg));
 				}
-				//Bukkit.getPluginManager().callEvent(new Herochat.ChatCompleteEvent(sender, this, msg));
+				//Bukkit.getPluginManager().callEvent(new ChatCompleteEvent(sender, this, msg));
 				Herochat.logChat(msg);
 			}
 		}

@@ -292,7 +292,7 @@ public class Utils {
 		try {
 			if (Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).getReturnType() == Collection.class) {
 				Collection<? extends Player> players = ((Collection<? extends Player>) Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).invoke(null, new Object[0]));
-				players.toArray(new Player[players.size()]);
+				return players.toArray(new Player[players.size()]);
 			} else {
 				return ((Player[]) Bukkit.class.getMethod("getOnlinePlayers", new Class<?>[0]).invoke(null, new Object[0]));
 			}

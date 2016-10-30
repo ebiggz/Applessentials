@@ -81,6 +81,16 @@ public class BarAPI implements Listener {
 		cancelTimer(player);
 	}
 	
+	public static void removeAllBars() {
+		for(UUID id: players.keySet()) {
+			//remove bar and remove players from bar
+			players.remove(id).removeAll();
+			
+			//remove and cancel timer
+			Bukkit.getScheduler().cancelTask(timers.remove(id));
+		}
+	}
+	
 	public static BossBar getBar(Player player) {
 		return players.get(player.getUniqueId());
 	}
@@ -94,15 +104,5 @@ public class BarAPI implements Listener {
 		if(taskId != null) {
 			Bukkit.getScheduler().cancelTask(taskId);
 		}
-	}
-	
-	@EventHandler(priority=EventPriority.MONITOR, ignoreCancelled=true)
-	public void PlayerLoggout(PlayerQuitEvent event) {
-		removeBar(event.getPlayer());
-	}
-  
-	@EventHandler(priority=EventPriority.MONITOR, ignoreCancelled=true)
-	public void onPlayerKick(PlayerKickEvent event) {
-	    removeBar(event.getPlayer());
 	}
 }

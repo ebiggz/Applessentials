@@ -22,6 +22,7 @@ import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 import com.gmail.erikbigler.applessentials.Applessentials;
 import com.gmail.erikbigler.applessentials.Slice;
+import com.gmail.erikbigler.applessentials.bossbar.BarAPI;
 import com.gmail.erikbigler.applessentials.utils.Time;
 import com.gmail.erikbigler.applessentials.utils.Utils;
 
@@ -159,6 +160,8 @@ public class PlayerListener implements Listener {
 		final Player p = event.getPlayer();
 
 		event.setQuitMessage("");
+		
+		BarAPI.removeBar(p);
 
 		Bukkit.getScheduler().runTaskAsynchronously(Applessentials.getPlugin(), new Runnable() {
 			@Override

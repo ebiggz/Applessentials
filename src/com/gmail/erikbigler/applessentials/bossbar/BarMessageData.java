@@ -42,9 +42,8 @@ public class BarMessageData {
 					}
 					lastTimeStamp = Time.getTimeWithSecs();
 					for(Player player : w.getPlayers()) {
-						break;
 						//if(Applessentials.getVoteLobby().playerIsInLobby(player)) continue;					
-						//BarAPI.setMessage(player, messages.get(currentMessage).replace("%player%", player.getName()), interval);
+						BarAPI.setMessage(player, messages.get(currentMessage).replace("%player%", player.getName()), interval);
 					}
 				}
 			}, 0, interval * 20);

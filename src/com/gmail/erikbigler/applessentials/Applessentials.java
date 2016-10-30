@@ -90,6 +90,7 @@ public class Applessentials extends JavaPlugin {
 
 	public void onDisable() {
 		getLogger().info("Disabled!");
+		BarAPI.removeAllBars();
 		Bukkit.getScheduler().cancelTasks(this);
 	}
 
