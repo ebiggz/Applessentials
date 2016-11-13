@@ -355,6 +355,27 @@ public class Slice {
 		}
 		playerData.saveConfig();
 	}
+	
+	public float getBalance() {
+		ConfigAccessor playerData = new ConfigAccessor("players" + File.separator + playerName + ".yml");
+		String rawBalance = playerData.getConfig().getString("balance", "0");
+		return Float.parseFloat(rawBalance);
+	}
+	
+	public void setBalance(float newBalance) {
+		ConfigAccessor playerData = new ConfigAccessor("players" + File.separator + playerName + ".yml");
+		playerData.getConfig().set("balance", Float.toString(newBalance));
+	}
+	
+	public void depositToBalance(float amount) {
+		float currentBalance = getBalance();
+		setBalance(currentBalance+amount);	
+	}
+	
+	public void withdrawFromBalance(float amount) {
+		float currentBalance = getBalance();
+		setBalance(currentBalance-amount);	
+	}
 
 	private void createFile(String path, String fileName) {
 		(new File(path)).mkdirs();
@@ -369,4 +390,6 @@ public class Slice {
 			}
 		}
 	}
+	
+	
 }

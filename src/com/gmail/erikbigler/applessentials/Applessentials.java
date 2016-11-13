@@ -141,6 +141,7 @@ public class Applessentials extends JavaPlugin {
 		getCommand("settings").setExecutor(new FriendsCmds());
 		getCommand("hub").setExecutor(new GeneralCmds(this));
 		getCommand("spawn").setExecutor(new GeneralCmds(this));
+		getCommand("pornhub").setExecutor(new GeneralCmds(this));
 
 		pm.registerEvents(new PlayerListener(this), this);
 		pm.registerEvents(new PlayerInfoListener(), this);

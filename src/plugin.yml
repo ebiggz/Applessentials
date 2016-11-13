@@ -1,6 +1,6 @@
 main: com.gmail.erikbigler.applessentials.Applessentials
 name: Applessentials
-version: 1.23
+version: 1.24
 author: ebiggz
 description: General purpose plugin for AppleCraft.
 depend: [Herochat, PermissionsEx, Vault]
@@ -94,6 +94,9 @@ commands:
         usage: /<command>
     spawn:
         description: Takes you to the hub.
+        usage: /<command>
+    pornhub:
+        description: Hmm...
         usage: /<command>
 permissions:
     applecraft.youtuber:

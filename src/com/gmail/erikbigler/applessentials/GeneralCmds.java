@@ -1,16 +1,15 @@
 package com.gmail.erikbigler.applessentials;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import com.gmail.erikbigler.applessentials.utils.Utils;
 
 
 public class GeneralCmds implements CommandExecutor {
@@ -49,6 +48,12 @@ public class GeneralCmds implements CommandExecutor {
 			if(tpLoc != null) {
 				p.teleport(tpLoc);
 			}
+		}
+		else if(commandLabel.equalsIgnoreCase("pornhub")) {
+			Player p = (Player) sender;
+			Location fireworkLoc = p.getLocation();
+			fireworkLoc.setY(fireworkLoc.getY()+2);
+			Utils.randomFirework(fireworkLoc);
 		}
 		return true;
 	}
